@@ -24,20 +24,36 @@ class ViewController: UIViewController {
         self.view.addSubview(label)
         self.label = label
 
-        // Button
-        var button = UIButton()
-        button.frame = CGRectMake(150,250,60,60)
-        button.setTitle("Click", forState: .Normal)
-        button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        self.view.addSubview(button)
+        // Increment Button
+        var incButton = UIButton()
+        incButton.frame = CGRectMake(150,250,150,60)
+        incButton.setTitle("Increment", forState: .Normal)
+        incButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        self.view.addSubview(incButton)
 
-        button.addTarget(self, action: "incrementCount", forControlEvents: UIControlEvents.TouchUpInside)
+        incButton.addTarget(self, action: "incrementCount", forControlEvents: UIControlEvents.TouchUpInside)
+
+        // Increment Button
+        var decButton = UIButton()
+        decButton.frame = CGRectMake(150,350,150,60)
+        decButton.setTitle("Decrement", forState: .Normal)
+        decButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        self.view.addSubview(decButton)
+
+        decButton.addTarget(self, action: "decrementCount", forControlEvents: UIControlEvents.TouchUpInside)
+
     }
 
     func incrementCount() {
         self.count++
         self.label.text = "\(self.count)"
     }
+
+    func decrementCount() {
+        self.count--
+        self.label.text = "\(self.count)"
+    }
+
 
 
 }
