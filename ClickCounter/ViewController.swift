@@ -23,6 +23,7 @@ class ViewController: UIViewController {
 
         self.view.addSubview(label)
         self.label = label
+        self.view.backgroundColor = UIColor.grayColor()
 
         // Increment Button
         var incButton = UIButton()
@@ -32,8 +33,10 @@ class ViewController: UIViewController {
         self.view.addSubview(incButton)
 
         incButton.addTarget(self, action: "incrementCount", forControlEvents: UIControlEvents.TouchUpInside)
+        incButton.addTarget(self, action: "changeBackgroundColor", forControlEvents: UIControlEvents.TouchUpInside)
 
-        // Increment Button
+
+        // Decrement Button
         var decButton = UIButton()
         decButton.frame = CGRectMake(150,350,150,60)
         decButton.setTitle("Decrement", forState: .Normal)
@@ -41,6 +44,7 @@ class ViewController: UIViewController {
         self.view.addSubview(decButton)
 
         decButton.addTarget(self, action: "decrementCount", forControlEvents: UIControlEvents.TouchUpInside)
+        decButton.addTarget(self, action: "changeBackgroundColor", forControlEvents: UIControlEvents.TouchUpInside)
 
     }
 
@@ -52,6 +56,16 @@ class ViewController: UIViewController {
     func decrementCount() {
         self.count--
         self.label.text = "\(self.count)"
+    }
+
+    func changeBackgroundColor() {
+        if self.view.backgroundColor == UIColor.grayColor() {
+            self.view.backgroundColor = UIColor.orangeColor()
+        }
+        else {
+            self.view.backgroundColor = UIColor.grayColor()
+        }
+
     }
 
 
